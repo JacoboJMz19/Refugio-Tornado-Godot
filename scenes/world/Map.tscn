@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/maps/pueblo_completo.png" id="1"]
+
+[sub_resource type="RectangleShape2D" id="north"]
+size = Vector2(831, 12)
+
+[sub_resource type="RectangleShape2D" id="south"]
+size = Vector2(831, 12)
+
+[sub_resource type="RectangleShape2D" id="west"]
+size = Vector2(12, 623)
+
+[sub_resource type="RectangleShape2D" id="east"]
+size = Vector2(12, 623)
+
+[node name="Map" type="Node2D"]
+
+[node name="MapSprite" type="Sprite2D" parent="."]
+centered = false
+texture = ExtResource("1")
+
+[node name="CollisionAreas" type="Node2D" parent="."]
+
+[node name="ForestNorth" type="StaticBody2D" parent="CollisionAreas"]
+position = Vector2(415, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionAreas/ForestNorth"]
+shape = SubResource("north")
+
+[node name="ForestSouth" type="StaticBody2D" parent="CollisionAreas"]
+position = Vector2(415, 617)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionAreas/ForestSouth"]
+shape = SubResource("south")
+
+[node name="ForestWest" type="StaticBody2D" parent="CollisionAreas"]
+position = Vector2(6, 311)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionAreas/ForestWest"]
+shape = SubResource("west")
+
+[node name="ForestEast" type="StaticBody2D" parent="CollisionAreas"]
+position = Vector2(825, 311)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionAreas/ForestEast"]
+shape = SubResource("east")

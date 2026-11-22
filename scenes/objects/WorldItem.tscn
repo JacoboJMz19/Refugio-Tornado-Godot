@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dpdxu6ygjbbf4"]
+
+[ext_resource type="Script" uid="uid://c62bkdnbmxhm3" path="res://scripts/objects/world_item.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bjpauf8u10aey" path="res://assets/items/agua.png" id="2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_item"]
+radius = 2.236068
+
+[node name="WorldItem" type="Area2D" unique_id=966200519]
+script = ExtResource("1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=120952517]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1883535952]
+shape = SubResource("CircleShape2D_item")

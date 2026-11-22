@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cl6qjlwma4oot"]
+
+[ext_resource type="Script" uid="uid://bv0e6awhec5sj" path="res://scripts/tornado/tornado.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://b82iwc07cawoo" path="res://assets/characters/tornado.png" id="2"]
+
+[node name="Tornado" type="Node2D" unique_id=617282335]
+script = ExtResource("1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=94112697]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2")

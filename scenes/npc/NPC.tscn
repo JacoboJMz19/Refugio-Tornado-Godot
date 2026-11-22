@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c4y0vd2fjpvfp"]
+
+[ext_resource type="Script" uid="uid://yq8ny13o50hc" path="res://scripts/npc/npc.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://c0svanbnpb30c" path="res://assets/characters/npc.png" id="2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_npc"]
+radius = 3.0
+height = 10.0
+
+[node name="NPC" type="CharacterBody2D" unique_id=948368177]
+script = ExtResource("1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1647294423]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1086173998]
+shape = SubResource("CapsuleShape2D_npc")

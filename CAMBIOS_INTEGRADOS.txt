@@ -1,0 +1,2 @@
+Base: RefugioAnteElTornado_Ultima version.zip
+Velocidades 40/70, 15 NPC y 15 rescates, 4 acompañantes, HUD 15, refugio frente al edificio, sin rotación artificial del tornado. Menú de inicio integrado con archivos para exportación web. No probado en el ejecutable Godot.
