@@ -8,12 +8,13 @@ const MAX_LIVES: int = 3
 const MAX_RESCUES: int = 15
 const GAME_DURATION: int = 180
 
+
 func _ready() -> void:
 	GameManager.time_changed.connect(_time)
 	GameManager.lives_changed.connect(_lives)
 	GameManager.rescued_changed.connect(_rescued)
 
-	_time(GameManager.time_left)
+	_time(GameManager.seconds_left)
 	_lives(GameManager.lives)
 	_rescued(GameManager.rescued)
 
@@ -33,7 +34,9 @@ func _process(_delta: float) -> void:
 			tornado.global_position
 		)
 
-		$Panel/VBox/Proximity.text = "TORNADO: %d px" % int(distance)
+		$Panel/VBox/Proximity.text = (
+			"TORNADO: %d px" % int(distance)
+		)
 
 	if player != null:
 		var qx: int = clampi(
@@ -65,13 +68,18 @@ func _time(v: int) -> void:
 
 
 func _lives(v: int) -> void:
-	$Panel/VBox/Lives.text = "VIDAS"
+	var lives_label: Label = $Panel/VBox/Lives
 
-	var hearts: HBoxContainer = $Panel/VBox/LivesContainer
+	if has_node("Panel/VBox/LivesContainer"):
+		var hearts: HBoxContainer = $Panel/VBox/LivesContainer
 
-	for i in range(hearts.get_child_count()):
-		var heart: TextureRect = hearts.get_child(i)
-		heart.visible = i < v
+		lives_label.text = "VIDAS"
+
+		for i in range(hearts.get_child_count()):
+			var heart: Control = hearts.get_child(i)
+			heart.visible = i < v
+	else:
+		lives_label.text = "VIDAS %d/%d" % [v, MAX_LIVES]
 
 
 func _rescued(v: int) -> void:
